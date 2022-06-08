@@ -1,0 +1,20 @@
+{
+  "name": "lytkinna.tech",
+  "version": "1.0.0",
+  "description": "A personal site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innayarantseva/lytkinna.tech.git"
+  },
+  "author": "innayarantseva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/innayarantseva/lytkinna.tech/issues"
+  },
+  "homepage": "https://github.com/innayarantseva/lytkinna.tech#readme",
+  "dependencies": {}
+}
