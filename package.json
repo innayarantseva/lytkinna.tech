@@ -1,20 +1,42 @@
 {
-  "name": "lytkinna.tech",
-  "version": "1.0.0",
-  "description": "A personal site",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/innayarantseva/lytkinna.tech.git"
-  },
-  "author": "innayarantseva",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/innayarantseva/lytkinna.tech/issues"
-  },
-  "homepage": "https://github.com/innayarantseva/lytkinna.tech#readme",
-  "dependencies": {}
+    "name": "lytkinna.tech",
+    "version": "1.0.0",
+    "description": "A personal site",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start:dev": "webpack-dev-server --mode development",
+        "build": "webpack --mode production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/innayarantseva/lytkinna.tech.git"
+    },
+    "author": "innayarantseva",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/innayarantseva/lytkinna.tech/issues"
+    },
+    "homepage": "https://github.com/innayarantseva/lytkinna.tech#readme",
+    "dependencies": {
+        "@types/react": "18.0.12",
+        "@types/react-dom": "18.0.5"
+    },
+    "devDependencies": {
+        "@babel/core": "7.18.2",
+        "@babel/preset-env": "7.18.2",
+        "@babel/preset-react": "7.17.12",
+        "babel-loader": "8.2.5",
+        "css-loader": "^6.7.1",
+        "html-webpack-plugin": "^5.5.0",
+        "prettier": "2.6.2",
+        "react": "18.1.0",
+        "react-dom": "18.1.0",
+        "style-loader": "^3.3.1",
+        "ts-loader": "9.3.0",
+        "typescript": "4.7.3",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.9.2",
+        "webpack-dev-server": "4.9.2"
+    }
 }
