@@ -1,13 +1,14 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import { Configuration } from 'webpack';
+import * as path from 'path';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import 'webpack-dev-server';
 
-module.exports = {
-    mode: 'development', // ???
-    entry: './src/main.tsx',
-    devtool: 'inline-source-map',
+const config: Configuration = {
+    mode: 'development',
+    entry: './src/index.tsx',
 
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, 'dist/'),
         filename: 'bundle.js'
     },
 
@@ -16,8 +17,7 @@ module.exports = {
             directory: path.join(__dirname, 'dist')
         },
         port: 9000,
-        hot: true,
-        open: true
+        hot: true
     },
 
     module: {
@@ -60,8 +60,10 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/template.html',
-            favicon: './src/images/favicon-32x32.png'
+            template: './public/index.html',
+            favicon: './public/favicon-32x32.png'
         })
     ]
 };
+
+export default config;

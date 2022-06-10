@@ -8,5 +8,10 @@
         "jsx": "react",
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
     }
 }
