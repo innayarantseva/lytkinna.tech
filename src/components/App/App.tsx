@@ -1,55 +1,47 @@
 import React from 'react';
-import { Link, Switch, Route } from 'wouter';
+import { Switch, Route } from 'wouter';
+import { Navigation } from '../Navigation';
 import styles from './App.module.css';
 import './App.css';
+import { Home } from '../../pages/Home';
+import { Blog } from '../../pages/Blog';
+import { Blogpost } from '../../pages/Blogpost';
+import { About } from '../../pages/About';
 
 export const App = () => {
     return (
-        <section className={styles.main}>
+        <section className={styles.section}>
             <header>
-                <nav>
-                    <Link href="/">Home</Link>
-                    <Link href="/blog">Blog</Link>
-                    <Link href="/about">About</Link>
-                </nav>
+                <Navigation />
             </header>
 
-            <Switch>
-                <Route path="/">
-                    <h1 className={styles.heading}>
-                        <p>lytk</p>
-                        <p className={styles.name}>inna</p>
-                    </h1>
-                    <p className={styles.description}>
-                        This is my very own personal site! WOW! 🎉
-                    </p>
-                </Route>
+            <main className={styles.main}>
+                <Switch>
+                    <Route path="/">
+                        <Home />
+                    </Route>
 
-                <Route path="/blog">
-                    Blog :)
-                    <Link href="/blog/first">My first post</Link>
-                </Route>
+                    <Route path="/blog">
+                        <Blog />
+                    </Route>
 
-                <Route path="/blog/:post">
-                    {(params: { post: string }) => (
-                        <div>Hello, {params.post} post!</div>
-                    )}
-                </Route>
+                    <Route path="/blog/:post">
+                        {(params: { post: string }) => (
+                            <Blogpost id={params.post} />
+                        )}
+                    </Route>
 
-                <Route path="/blog/tags/:tag">
-                    {(params: { tag: string }) => (
-                        <div>There's {params.tag} page!</div>
-                    )}
-                </Route>
+                    <Route path="/about">
+                        <About />
+                    </Route>
 
-                <Route path="/about">About me :)</Route>
-
-                <Route path="/:rest*">
-                    {(params: { rest: string }) =>
-                        `404, Sorry the page ${params.rest} does not exist!`
-                    }
-                </Route>
-            </Switch>
+                    <Route path="/:rest*">
+                        {(params: { rest: string }) =>
+                            `404, Sorry the page ${params.rest} does not exist!`
+                        }
+                    </Route>
+                </Switch>
+            </main>
         </section>
     );
 };
