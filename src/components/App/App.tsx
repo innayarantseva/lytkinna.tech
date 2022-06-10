@@ -36,6 +36,12 @@ export const App = () => {
                     )}
                 </Route>
 
+                <Route path="/blog/tags/:tag">
+                    {(params: { tag: string }) => (
+                        <div>There's {params.tag} page!</div>
+                    )}
+                </Route>
+
                 <Route path="/about">About me :)</Route>
 
                 <Route path="/:rest*">
