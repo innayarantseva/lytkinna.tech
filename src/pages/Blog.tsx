@@ -8,7 +8,7 @@ export const Blog = () => {
         <Page heading="Blog">
             <BlogpostList>
                 {POSTS.map((post) => (
-                    <BlogpostLink key={post.href} {...post} />
+                    <BlogpostLink key={post.id} {...post} />
                 ))}
             </BlogpostList>
         </Page>

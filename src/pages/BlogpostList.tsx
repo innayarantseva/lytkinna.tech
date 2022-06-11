@@ -43,7 +43,7 @@ const Description = styled.p`
 `;
 
 export type PostLinkProps = {
-    href: string;
+    id: string;
     className?: string;
     heading: string;
     description: string;
@@ -52,7 +52,7 @@ export type PostLinkProps = {
 };
 
 const PostLink: React.FC<PostLinkProps> = ({
-    href,
+    id,
     className,
     heading,
     description,
@@ -61,7 +61,7 @@ const PostLink: React.FC<PostLinkProps> = ({
 }) => {
     return (
         <Li>
-            <Link href={href} className={className}>
+            <Link href={`/blog/${id}`} className={className}>
                 <Time dateTime={date}>{date}</Time>
                 <Heading>{heading}</Heading>
                 <Description>{description}</Description>

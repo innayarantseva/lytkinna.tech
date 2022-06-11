@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start:dev": "webpack-dev-server -d inline-source-map",
+        "start:dev": "webpack && webpack-dev-server -d inline-source-map",
         "build": "webpack --mode production"
     },
     "repository": {
@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/innayarantseva/lytkinna.tech#readme",
     "dependencies": {
+        "react-markdown": "8.0.3",
         "styled-components": "5.3.5",
         "wouter": "2.8.0-alpha.2"
     },
@@ -26,14 +27,15 @@
         "@babel/core": "7.18.2",
         "@babel/preset-env": "7.18.2",
         "@babel/preset-react": "7.17.12",
+        "@types/node": "17.0.41",
         "@types/react": "18.0.12",
         "@types/react-dom": "18.0.5",
-        "@types/node": "17.0.41",
         "@types/styled-components": "5.1.25",
         "@types/webpack": "5.28.0",
         "@types/webpack-dev-server": "4.7.2",
         "babel-loader": "8.2.5",
         "babel-plugin-styled-components": "2.0.7",
+        "copy-webpack-plugin": "11.0.0",
         "css-loader": "6.7.1",
         "html-webpack-plugin": "5.5.0",
         "prettier": "2.6.2",

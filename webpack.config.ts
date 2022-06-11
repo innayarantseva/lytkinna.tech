@@ -1,6 +1,7 @@
 import { Configuration } from 'webpack';
 import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as CopyPlugin from 'copy-webpack-plugin';
 import 'webpack-dev-server';
 
 const config: Configuration = {
@@ -65,6 +66,9 @@ const config: Configuration = {
             template: './public/index.html',
             favicon: './public/favicon-32x32.png',
             inject: 'body'
+        }),
+        new CopyPlugin({
+            patterns: [{ from: 'src/data/posts', to: 'data/posts' }]
         })
     ]
 };
