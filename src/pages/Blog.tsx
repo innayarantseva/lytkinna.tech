@@ -1,26 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'wouter';
-import { Heading } from '../components/Heading';
 import { Page } from '../components/Page';
-import { Section } from '../components/Section';
 
 const Time = styled.time`
     color: grey;
 `;
 
 const Ul = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-gap: 15px;
     justify-content: center;
-    padding: 30px 0 0 0;
+    padding: 0;
     margin: auto;
-    max-width: 700px;
+    width: 100%;
 `;
 const Li = styled.li`
+    display: flex;
     padding: 0;
-    margin: 5px;
+    margin: 0;
     list-style: none;
+
+    min-height: 230px;
+
+    border: 1px solid grey;
+    border-radius: 16px;
+
+    transition: color ease-in-out 0.2s;
+
+    &:hover {
+        border-color: #e21e5e;
+    }
 `;
 
 const PostHeading = styled.h4`
@@ -66,22 +77,12 @@ const PostLink: React.FC<PostLinkProps> = ({
 const StyledPostLink = styled(PostLink)`
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 
-    width: 250px;
-    min-height: 230px;
     padding: 1em;
-
-    border: 1px solid grey;
-    border-radius: 16px;
 
     text-decoration: none;
     color: black;
-
-    transition: color ease-in-out 0.2s;
-
-    &:hover {
-        border-color: #e21e5e;
-    }
 `;
 
 export const Blog = () => {
@@ -99,6 +100,13 @@ export const Blog = () => {
                     href="/blog/second-post"
                     heading="Tech Diary #2: Dockerize The Site!"
                     description="Wrapping it all in Docker"
+                    date="sometime soon"
+                    tags={['tech_diary']}
+                />
+                <StyledPostLink
+                    href="/blog/third"
+                    heading="Tech Diary #3: Adding React, TS And Bundling"
+                    description=""
                     date="sometime soon"
                     tags={['tech_diary']}
                 />
