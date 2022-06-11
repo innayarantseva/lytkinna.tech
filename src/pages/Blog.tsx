@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'wouter';
 import { Heading } from '../components/Heading';
+import { Page } from '../components/Page';
 import { Section } from '../components/Section';
 
 const Time = styled.time`
@@ -85,8 +86,7 @@ const StyledPostLink = styled(PostLink)`
 
 export const Blog = () => {
     return (
-        <Section>
-            <Heading>Blog</Heading>
+        <Page heading="Blog">
             <Ul>
                 <StyledPostLink
                     href="/blog/first-post"
@@ -103,6 +103,6 @@ export const Blog = () => {
                     tags={['tech_diary']}
                 />
             </Ul>
-        </Section>
+        </Page>
     );
 };

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Heading } from '../components/Heading';
-import { Section } from '../components/Section';
+import { Page } from '../components/Page';
 
 export const About = () => {
     return (
-        <Section>
-            <Heading>About</Heading>
+        <Page heading="About">
             <p>Some info will be here very soon!</p>
-        </Section>
+        </Page>
     );
 };

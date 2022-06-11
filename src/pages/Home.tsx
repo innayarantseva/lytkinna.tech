@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Heading } from '../components/Heading';
-import { Section } from '../components/Section';
+import { Page } from '../components/Page';
 
 const Emphasized = styled.p`
     color: #e21e5e;
@@ -14,15 +13,17 @@ const Description = styled.p`
 
 export const Home = () => {
     return (
-        <Section>
-            <Heading>
-                <p>lytk</p>
-                <Emphasized>inna</Emphasized>
-            </Heading>
-
+        <Page
+            heading={
+                <React.Fragment>
+                    <p>lytk</p>
+                    <Emphasized>inna</Emphasized>
+                </React.Fragment>
+            }
+        >
             <Description>
                 This is my very own personal site! WOW! 🎉
             </Description>
-        </Section>
+        </Page>
     );
 };

@@ -1,21 +1,26 @@
 import React from 'react';
 import { Switch, Route } from 'wouter';
 import { Navigation } from '../Navigation';
-import styles from './App.module.css';
-import './App.css';
 import { Home } from '../../pages/Home';
 import { Blog } from '../../pages/Blog';
 import { Blogpost } from '../../pages/Blogpost';
 import { About } from '../../pages/About';
+import styled from 'styled-components';
+import './App.css';
+
+const Container = styled.section`
+    flex-grow: 1;
+    padding: 0.5em;
+`;
 
 export const App = () => {
     return (
-        <section className={styles.section}>
+        <Container>
             <header>
                 <Navigation />
             </header>
 
-            <main className={styles.main}>
+            <main>
                 <Switch>
                     <Route path="/">
                         <Home />
@@ -42,6 +47,6 @@ export const App = () => {
                     </Route>
                 </Switch>
             </main>
-        </section>
+        </Container>
     );
 };

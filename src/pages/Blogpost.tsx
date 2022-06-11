@@ -1,7 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Post = styled.article``;
+import { Page } from '../components/Page';
 
 type BlogpostProps = {
     id: string;
@@ -9,9 +7,8 @@ type BlogpostProps = {
 
 export const Blogpost: React.FC<BlogpostProps> = ({ id }) => {
     return (
-        <Post>
-            <h2>{`A post with ID ${id}`}</h2>
+        <Page heading={`A post with ID ${id}`}>
             <p>This is soon to be implemented 👩‍💻 Sorry 😬</p>
-        </Post>
+        </Page>
     );
 };
