@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from '../components/Page';
 import { POSTS } from '../data/posts';
-import { BlogpostLink, BlogpostList } from './BlogpostList';
+import { BlogpostLink, BlogpostList } from '../components/BlogpostList';
 
 export const Blog = () => {
     return (

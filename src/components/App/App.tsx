@@ -9,8 +9,8 @@ import styled from 'styled-components';
 import './App.css';
 
 const Container = styled.section`
-    flex-grow: 1;
-    padding: 0.5em;
+    flex: 1 0 auto;
+    width: 100%;
 `;
 
 export const App = () => {

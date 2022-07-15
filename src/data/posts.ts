@@ -1,11 +1,11 @@
-import { PostLinkProps } from '../pages/BlogpostList';
+import { PostLinkProps } from '../components/BlogpostList';
 
 export const POSTS: PostLinkProps[] = [
     {
         id: 'tech_diary_1',
         heading: 'Tech Diary #1: Getting A Space For The Blog',
         description: 'Setting up a domain name and a hosting for the site',
-        date: 'sometime soon',
+        date: 'June 8, 2022 12:22 PM',
         tags: ['tech_diary']
     },
     {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyledComponentProps } from 'styled-components';
 import { Heading } from './Heading';
 import { Section } from './Section';
 

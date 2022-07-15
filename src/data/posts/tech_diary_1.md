@@ -1,5 +1,3 @@
-Created: June 8, 2022 12:22 PM
-
 Hey there! Let’s talk about how you can set up an environment to host your blog, site, app, service, you name it.
 
 What we need to successfully place our work on the Internet:
@@ -66,7 +64,7 @@ Set up SSL certificate
 
 I have used Let’s encrypt, and have done pretty much everything like they say in their docs for ubuntu+nginx: [https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
 
-I didn’t have snapd installed on my VM Ubuntu, so I ran
+I didn’t have `snapd` installed on my VM Ubuntu, so I ran
 
 ```bash
 sudo apt-get install snapd
@@ -74,7 +72,7 @@ sudo apt-get install snapd
 
 And after that I have done everything like they say. I chose to edit configuration by hands, so after getting a cert I created a file `/etc/nginx/ssl` :
 
-```bash
+```nginx
 ssi on;
 add_header Strict-Transport-Security "max-age=31536000;";
 ssl_ciphers HIGH:!RC4:!aNULL:!eNULL:!MD5:!EXPORT:!EXP:!LOW:!SEED:!CAMELLIA:!IDEA:!PSK:!SRP:!SSLv2;
@@ -87,7 +85,7 @@ ssl_certificate_key /etc/letsencrypt/live/my_domain/privkey.pem;
 
 By doing so I am able to reuse this ssl configuration in any server file I want. It is especially useful in case you have created a cert for wildcard and want to re-use it for different subdomains:
 
-```bash
+```nginx
 server {
 	listen [::]:443 ssl http2 backlog=2048 ipv6only=off;
 	include ssl;

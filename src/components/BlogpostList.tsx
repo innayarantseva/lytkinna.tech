@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'wouter';
+import { Time } from './Time';
 
 export const BlogpostList = styled.ul`
     display: grid;
@@ -28,10 +29,6 @@ const Li = styled.li`
     &:hover {
         border-color: #e21e5e;
     }
-`;
-
-const Time = styled.time`
-    color: grey;
 `;
 
 const Heading = styled.h3`
@@ -62,7 +59,7 @@ const PostLink: React.FC<PostLinkProps> = ({
     return (
         <Li>
             <Link href={`/blog/${id}`} className={className}>
-                <Time dateTime={date}>{date}</Time>
+                <Time>{date}</Time>
                 <Heading>{heading}</Heading>
                 <Description>{description}</Description>
 

@@ -1,18 +1,26 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
+import { Markdown } from '../components/Markdown/Markdown';
 import { Page } from '../components/Page';
+import { Time } from '../components/Time';
 import { POSTS } from '../data/posts';
 
-const getHeadingByPostId = (id: string) => {
+const getPostMetadataById = (id: string) => {
     const postMetadata = POSTS.find((post) => post.id === id);
 
-    return postMetadata ? postMetadata.heading : `A post with ID ${id}`;
+    return postMetadata;
 };
 
 const Container = styled.article`
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 0 auto;
     width: 100%;
-    max-width: 700px;
+    word-break: break-word;
+    max-width: 720px;
+
+    margin-bottom: 8em;
 `;
 
 type BlogpostProps = {
@@ -22,7 +30,7 @@ type BlogpostProps = {
 export const Blogpost: React.FC<BlogpostProps> = ({ id }) => {
     const [content, setContent] = useState('');
 
-    const heading = useMemo(() => getHeadingByPostId(id), []);
+    const { heading, date } = useMemo(() => getPostMetadataById(id), []);
 
     useEffect(() => {
         fetch(`/data/posts/${id}.md`)
@@ -41,14 +49,8 @@ export const Blogpost: React.FC<BlogpostProps> = ({ id }) => {
     return (
         <Page heading={heading}>
             <Container>
-                <ReactMarkdown
-                    children={content}
-                    components={{
-                        img: ({ node, ...props }) => (
-                            <img style={{ maxWidth: '100%' }} {...props} />
-                        )
-                    }}
-                />
+                <Time>{date}</Time>
+                <Markdown content={content} />
             </Container>
         </Page>
     );
