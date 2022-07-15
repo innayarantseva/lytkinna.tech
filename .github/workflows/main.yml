@@ -37,3 +37,13 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lytkinna.tech:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/lytkinna.tech:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/lytkinna.tech:buildcache,mode=max
+          
+  redeploy:
+    name: Redeploy webhook call
+    runs-on: ubuntu-18.04
+    needs: [build]
+    steps:
+      - name: Deploy docker container webhook
+        uses: joelwmale/webhook-action@master
+        env:
+          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL  }}
