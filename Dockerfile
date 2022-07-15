@@ -17,6 +17,8 @@ RUN npm run build
 FROM nginx:alpine
 # copy static files into docker
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
+# replace standard nginx config with custom one
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # app should be exposed on 8080 on production VM
 EXPOSE 8080

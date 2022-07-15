@@ -1,6 +1,7 @@
 import { Configuration } from 'webpack';
 import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as CopyPlugin from 'copy-webpack-plugin';
 import 'webpack-dev-server';
 
 const config: Configuration = {
@@ -9,7 +10,8 @@ const config: Configuration = {
 
     output: {
         path: path.join(__dirname, 'dist/'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
 
     devServer: {
@@ -17,7 +19,8 @@ const config: Configuration = {
             directory: path.join(__dirname, 'dist')
         },
         port: 9000,
-        hot: true
+        hot: true,
+        historyApiFallback: true
     },
 
     module: {
@@ -61,7 +64,11 @@ const config: Configuration = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            favicon: './public/favicon-32x32.png'
+            favicon: './public/favicon-32x32.png',
+            inject: 'body'
+        }),
+        new CopyPlugin({
+            patterns: [{ from: 'src/data/posts', to: 'data/posts' }]
         })
     ]
 };
